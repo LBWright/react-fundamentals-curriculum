@@ -7,11 +7,11 @@ class App extends React.Component{
 			<div className="container">
 				<div className="navbar">
 					<h1 className="title">Weather App</h1>
-					<Search name="nav-search" placeholder="Houston, Texas"/>
+					<Search name="nav-search" placeholder="i.e. 77535"/>
 				</div>
 				<div className="content-container" style={{backgroundImage: "url('app/images/pattern.svg')"}}>
-					<h1 className="header">Enter a City and State</h1>
-					<Search name="main-search" placeholder="Houston, Texas"/>
+					<h1 className="header">Search by ZipCode</h1>
+					<Search name="main-search" placeholder="i.e. 77535"/>
 				</div>
 			</div> //container
 		)
