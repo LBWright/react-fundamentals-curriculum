@@ -1,6 +1,7 @@
 import React from 'react';
-import getWeather from '../utils/api';
-
+import { Link } from 'react-router-dom';
+import api from '../utils/api';
+//WOULD BE BETTER TO LINK TO A NEW COMPONENT AND MAKE AXIOS REQUEST COMPONENT MOUNT
 class Search extends React.Component{
 	constructor(props){
 		super(props)
@@ -16,12 +17,6 @@ class Search extends React.Component{
 	}
 	handleSubmit(event){
 		event.preventDefault();
-		getWeather(this.state.zipcode)
-		.then((data=>{
-			console.log(data.data);
-			this.setState({weatherData: data.data})
-		}))
-		
 	}
 	render(){
 		return(
@@ -34,10 +29,16 @@ class Search extends React.Component{
 						placeholder={this.props.placeholder} 
 						onChange={this.handleInput}
 					/>
-					<button 
+					<Link
+						to={{
+							pathname: '/forecast',
+							state: {
+								search: + this.state.zipcode
+							}
+						}}
 						className="btn">
 						Search
-					</button>
+					</Link>
 				</form>
 			</div>
 		)
