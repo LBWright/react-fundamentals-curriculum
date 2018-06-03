@@ -7,6 +7,9 @@ h1 {
 	font-size: 3rem;
 	font-family: Arial, Helvetica, sans-serif;
 }
+a {
+	text-decoration: none;
+}
 .container {
 	margin: 0 auto;
 	display: flex;
@@ -39,6 +42,8 @@ h1 {
 	font-size: 1.15rem;
 	border-radius: 5px;
 	text-decoration: none;
+	text-align: center;
+	padding-top: 5px;
 }
 .btn:hover{
 	background: #1E8449;
@@ -65,4 +70,26 @@ h1 {
 img .icon {
 	height: 200px;
 	width: 200px;
+}
+ul {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	flex-wrap: wrap;
+	list-style-type: none;
+	align-items: center;
+}
+
+li {
+	margin: 30px;
+	text-decoration: none;
+	list-style-type: none;	
+}
+
+.daily-container {
+	margin: 50px auto;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	align-items: center;
 }

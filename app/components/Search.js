@@ -33,7 +33,7 @@ class Search extends React.Component{
 						to={{
 							pathname: '/forecast',
 							state: {
-								search: + this.state.zipcode
+								search: this.state.zipcode
 							}
 						}}
 						className="btn">

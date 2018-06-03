@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import getIcon from '../utils/icon'
+import getIcon from '../utils/icon';
+import { Link } from 'react-router-dom';
 
 class Weekly extends React.Component{
 	constructor(props){
@@ -15,8 +16,6 @@ class Weekly extends React.Component{
 
 	getDaily(fiveDayArray){
 		return fiveDayArray.map(daily => {
-			console.log(daily);
-			console.log('temp:', daily.main.temp);
 			return (
 				<DailyGlance daily={daily} />
 			)
@@ -26,7 +25,7 @@ class Weekly extends React.Component{
 	render(){
 		return (
 			<div>
-				<ul>
+				<ul className="weather-list">
 					{this.getDaily(this.state.weatherArray)}
 				</ul>
 			</div>
@@ -37,10 +36,22 @@ class Weekly extends React.Component{
 
 const DailyGlance = (props) =>{
 	let iconCode = props.daily.weather[0].icon;
+	let displayedIcon = getIcon(iconCode);
 	return (
-		<li key={props.daily.dt}><img height="400" width="400" src={getIcon(iconCode)} alt="icon depicting current weather" /></li>
+		<div>
+			<Link to={{
+				pathname: '/forecast/daily',
+				state: {
+					daily: props.daily,
+					icon: displayedIcon
+				}			
+			}}>
+				<li key={props.daily.dt}>
+					<img height="250" width="250" src={displayedIcon} alt="icon depicting current weather" />
+				</li>
+			</Link>
+		</div>
 	)
-
 }
 
 module.exports = Weekly;
