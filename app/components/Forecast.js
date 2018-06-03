@@ -1,29 +1,33 @@
 import React from 'react';
 import api from '../utils/api';
 import queryString from 'query-string';
+import Weekly from './Weekly';
 
 class Forecast extends React.Component {
 	constructor(props){
 		super(props);
 		this.state = {
-			weather : {},
+			weather : null,
 			zipcode: props.location.state.search
 		}
 	}
-
 	componentDidMount() {
 		console.log('Logging Props:', this.props);
 		api.getWeather(this.state.zipcode)
 		.then((weather=>{
-			console.log(weather.data);
+			//console.log(weather.data);
 			this.setState({weather: weather.data})
-		}))
+		})).catch(error => {
+			console.log(error);
+		})
 	}
 	render() {
 		return(
 			<div>
-				<div>Zipcode: {this.state.zipcode}</div>
-				<div>Weather: {JSON.stringify(this.state.weather)}</div>
+				{!this.state.weather ?
+				<p>Loading...</p> :
+				<Weekly weatherData={this.state.weather}/>
+				}
 			</div>
 		);
 	}

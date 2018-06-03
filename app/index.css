@@ -62,3 +62,7 @@ h1 {
 	display: flex;
 	align-items: center;
 }
+img .icon {
+	height: 200px;
+	width: 200px;
+}
