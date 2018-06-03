@@ -22,7 +22,7 @@ class Daily extends React.Component{
 					<h3>Temperature: {Math.round(weather.main.temp * 9/5 - 459.67)}F</h3>
 					<h3>Weather: {weather.weather[0].description}</h3>
 					<h3>Humidity: {weather.main.humidity}</h3>
-					<Link className="btn" to='/forecast'>5-day</Link>
+					<Link className="btn" to='/'>Home</Link>
 				</div>
 			</div>
 		)
